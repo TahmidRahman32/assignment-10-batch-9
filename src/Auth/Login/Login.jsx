@@ -1,6 +1,26 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Router/AuthProvider";
 
 const Login = () => {
+   const {Login} = useContext(AuthContext)
+   const handleLogInBtn = (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+
+      const email = form.email.value;
+      const password = form.password.value;
+      console.log( email, password);
+
+      Login(email, password)
+         .then((result) => {
+            console.log(result.user);
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   };
    return (
       <div className="font-[sans-serif] bg-gray-500 md:h-screen">
          <div className="grid md:grid-cols-2 items-center h-full">
@@ -9,7 +29,7 @@ const Login = () => {
             </div>
 
             <div className="flex items-center md:p-8 p-6  h-full lg:w-3/5 lg:mx-auto ">
-               <form className="max-w-3xl w-full mx-auto">
+               <form onSubmit={handleLogInBtn} className="max-w-3xl w-full mx-auto">
                   <div className="mb-12">
                      <h3 className="text-4xl font-bold text-yellow-500">LogIn Now!!</h3>
                   </div>
@@ -68,10 +88,10 @@ const Login = () => {
                   </div>
 
                   <div className="mt-12">
-                     <a className="my-4 relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-yellow-600 rounded-full hover:bg-white group">
+                     <button className="my-4 relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-yellow-600 rounded-full hover:bg-white group">
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-yellow-500">Login</span>
-                     </a>
+                     </button>
                      <p className="text-sm text-white mt-8">
                         Already have an account?{" "}
                         <Link to={"/signup"} href="javascript:void(0);" className="text-yellow-400 font-semibold hover:underline ml-1">

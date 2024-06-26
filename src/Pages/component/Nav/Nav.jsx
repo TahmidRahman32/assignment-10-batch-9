@@ -1,13 +1,14 @@
-import {  useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 
 import { NavLink } from "react-router-dom";
-// import { AuthContext } from "../../Route/AuthProvider";
+
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Router/AuthProvider";
 
 const Nav = () => {
-   const user = 1
+   
    const [theme, setTheme] = useState("light");
-   // const { user, logOut } = useContext(AuthContext);
+   const { user, logOut } = useContext(AuthContext);
 
    const handleSignOut = () => {
       Swal.fire({
@@ -25,11 +26,11 @@ const Nav = () => {
                text: "You are logged out",
                icon: "success",
             });
-            // logOut()
-            //    .then({})
-            //    .catch((error) => {
-            //       console.log(error);
-            //    });
+            logOut()
+               .then({})
+               .catch((error) => {
+                  console.log(error);
+               });
          }
       });
    };
@@ -45,7 +46,7 @@ const Nav = () => {
             </NavLink>
 
             {user && (
-               <NavLink to={"/order"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
+               <NavLink to={"/addArt"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
                   AddCraftItem
                </NavLink>
             )}
