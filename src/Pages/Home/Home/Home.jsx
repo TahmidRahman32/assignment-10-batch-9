@@ -8,7 +8,7 @@ import SaleSectin from "../../component/salesection/SaleSectin";
 const Home = () => {
    return (
       <div>
-         <Nav></Nav>
+         
          <Banner></Banner>
          <Collection></Collection>
          <SaleSectin></SaleSectin>
