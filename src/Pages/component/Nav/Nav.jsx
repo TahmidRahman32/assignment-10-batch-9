@@ -36,22 +36,22 @@ const Nav = () => {
 
    const navLinks = (
       <>
-         <div className=" flex  lg:gap-4 md:gap-3 gap-2 lg:items-center">
+         <div className=" md:flex space-x-3 lg:gap-4 md:gap-3 gap-2 lg:items-center">
             <NavLink to={"/"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle " : "font-bold md:text-xl font-fStyle")}>
                Home
             </NavLink>
             <NavLink to={"/about"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
-               about
+               AllArt&craftItems
             </NavLink>
 
             {user && (
                <NavLink to={"/order"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
-                  OrderList
+                  AddCraftItem
                </NavLink>
             )}
             {user && (
                <NavLink to={"/profile"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
-                  Profile
+                  MyArt&CraftList
                </NavLink>
             )}
 
@@ -61,7 +61,7 @@ const Nav = () => {
                      LogUot
                   </NavLink>
                ) : (
-                  <NavLink to={"/logIn"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
+                  <NavLink to={"/login"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
                      LogIn
                   </NavLink>
                )}
@@ -87,7 +87,7 @@ const Nav = () => {
       document.querySelector("html").setAttribute("data-theme", localTheme);
    }, [theme]);
    return (
-      <div className="navbar bg-base-100 shadow-y">
+      <div className="navbar bg-base-100 shadow-y md:mb-0 mb-20">
          <div className="navbar-start">
             <div className="dropdown">
                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
