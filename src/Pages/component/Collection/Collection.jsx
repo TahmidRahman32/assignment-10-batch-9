@@ -6,15 +6,15 @@ import remove5 from "../../../assets/remove5.png";
 
 const Collection = () => {
    return (
-      <div className=" mt-72 ">
+      <div className=" md:mt-72 ">
          <h1 className="text-4xl font-bold  text-center my-8">Explore Popular Jewellery</h1>
 
          <div className="flex gap-10 mt-8 justify-center animate__animated animate__lightSpeedInRight  animate__slow">
-            <img className="w-52" src={remove1} alt="" />
-            <img className="w-52" src={remove2} alt="" />
-            <img className="w-52" src={remove3} alt="" />
-            <img className="w-52" src={remove4} alt="" />
-            <img className="w-52" src={remove5} alt="" />
+            <img className="md:w-52 w-8" src={remove1} alt="" />
+            <img className="md:w-52 w-8" src={remove2} alt="" />
+            <img className="md:w-52 w-8" src={remove3} alt="" />
+            <img className="md:w-52 w-8" src={remove4} alt="" />
+            <img className="md:w-52 w-8" src={remove5} alt="" />
          </div>
       </div>
    );

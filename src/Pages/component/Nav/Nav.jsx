@@ -1,4 +1,4 @@
-import {  useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { NavLink } from "react-router-dom";
 
@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../Router/AuthProvider";
 
 const Nav = () => {
-   
    const [theme, setTheme] = useState("light");
    const { user, logOut } = useContext(AuthContext);
 
@@ -41,17 +40,16 @@ const Nav = () => {
             <NavLink to={"/"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle " : "font-bold md:text-xl font-fStyle")}>
                Home
             </NavLink>
-            <NavLink to={"/about"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
+            <NavLink to={"/AllArt&craftItems"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
                AllArt&craftItems
             </NavLink>
 
+            <NavLink to={"/addArt"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
+               AddCraftItem
+            </NavLink>
+
             {user && (
-               <NavLink to={"/addArt"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
-                  AddCraftItem
-               </NavLink>
-            )}
-            {user && (
-               <NavLink to={"/profile"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
+               <NavLink to={"/AllArt&craftItems"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
                   MyArt&CraftList
                </NavLink>
             )}

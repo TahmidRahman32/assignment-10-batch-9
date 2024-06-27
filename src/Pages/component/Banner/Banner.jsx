@@ -37,7 +37,7 @@ const Banner = () => {
                            <br /> Elementor Pro Template Kit
                         </h2>
 
-                        <p className=" md:mx-0  my-3 md:text-xl text-gray-200">
+                        <p className=" md:mx-0  md:text-xl text-gray-200">
                            You Will Be Able To Build Your Website According To Your Needs With The Help <br /> Of Amazing Elementor Page Builder. You Don’t Need To Know Coding,{" "}
                         </p>
                      </div>

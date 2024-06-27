@@ -6,8 +6,8 @@ import img4 from "../../../assets/images.png";
 const SaleSectin = () => {
    return (
       <div className="mt-10">
-         <div className="flex justify-center   animate__animated animate__fadeInUpBig animate__slow">
-            <div className="relative mx-10">
+         <div className="md:flex justify-center   animate__animated animate__fadeInUpBig animate__slow">
+            <div className="relative md:mx-10">
                <img className="w-[600px] h-[650px]  " src={img1} alt="" />
                <div className="border-l-8 border-b-8  px-8 absolute top-0 right-0 ">
                   <p className="font-bold text-xl text-white">UpTo</p>
@@ -24,10 +24,10 @@ const SaleSectin = () => {
                   <h1 className="uppercase text-4xl font-bold text-white">new fashion</h1>
                </div>
             </div>
-            <div className="flex gap-10">
+            <div className="md:flex gap-10">
                <div>
                   <div>
-                     <img className="w-[380px] h-[320px]" src={img3} alt="" />
+                     <img className="md:w-[380px] w-full h-[320px]" src={img3} alt="" />
                   </div>
                   <div className="px-2 py-24 bg-stone-800 text-center">
                      <h5 className="text-white text-xl font-bold text-center">trending Design 2024</h5>
@@ -48,12 +48,12 @@ const SaleSectin = () => {
                      </a>
                   </div>
                   <div>
-                     <img className="w-[380px] h-[320px]" src={img2} alt="" />
+                     <img className="md:w-[380px] w-full h-[320px]" src={img2} alt="" />
                   </div>
                </div>
                <div>
                   <div>
-                     <img className="w-[380px] h-[320px]" src={img4} alt="" />
+                     <img className="md:w-[380px] w-full h-[320px]" src={img4} alt="" />
                   </div>
                   <div className="px-7 py-24 bg-stone-800 text-center gap-4">
                      <h5 className="text-white text-xl font-bold text-center">trending Design 2024</h5>
