@@ -1,12 +1,18 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Router/AuthProvider";
+import { FaEyeSlash } from "react-icons/fa";
+import { IoEyeSharp } from "react-icons/io5";
+
+import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 const Signup = () => {
    const [showPass, setShowPass] = useState(false);
    const [registerError, setRegisterError] = useState("");
    const [registerMassage, setRegisterMassage] = useState("");
    const { createUser } = useContext(AuthContext);
+   const navigate = useNavigate();
    const handleSignUpBtn = (e) => {
       e.preventDefault();
 
@@ -16,12 +22,36 @@ const Signup = () => {
       const password = form.password.value;
       console.log(name, email, password);
 
+        if (password.length < 6) {
+           toast.error("password must be 6 character");
+           return;
+        } else if (!/[A-Z]/.test(password)) {
+           toast.error("please add one uppercase");
+           return;
+        } else if (!/[a-z]/.test(password)) {
+           toast.error("please add one lowercase");
+           return;
+        }
+        
+
       createUser(email, password)
          .then((result) => {
             console.log(result.user);
+            console.log(result.user);
+            setRegisterMassage("User create a successfully");
+            updateProfile(result.user, {
+               displayName: name,
+             
+            })
+               .then(() => {
+                  console.log("name is done");
+               })
+               .catch(() => {});
+                navigate("/");
          })
          .catch((error) => {
             console.log(error);
+            setRegisterError(error.code);
          });
    };
    return (
@@ -34,7 +64,21 @@ const Signup = () => {
 
                <div className="flex items-center md:p-8 p-6  h-full lg:w-11/12 lg:ml-auto">
                   <form onSubmit={handleSignUpBtn} className="max-w-lg w-full mx-auto">
-                     <div className="mb-12">
+                     <div className="">
+                        <div>
+                           {registerError && (
+                              <div className="">
+                                 <p className="text-red-600 text-2xl font-bold font-fStyle">{registerError}</p>
+                              </div>
+                           )}
+                        </div>
+                        <div>
+                           {registerMassage && (
+                              <div className="">
+                                 <p className="text-green-600 text-2xl font-bold font-fStyle">{registerMassage}</p>
+                              </div>
+                           )}
+                        </div>
                         <h3 className="text-4xl font-bold text-yellow-500">Create an account</h3>
                      </div>
 
@@ -72,12 +116,9 @@ const Signup = () => {
                         <label className="text-white text-xs block mb-2">Password</label>
                         <div className="relative flex items-center">
                            <input name="password" type={showPass ? "text" : "password"} required className="w-full bg-transparent text-sm  border-b border-gray-300 focus:border-yellow-400 px-2 py-3 outline-none" placeholder="Enter password" />
-                           <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-2 cursor-pointer" viewBox="0 0 128 128">
-                              <path
-                                 d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
-                                 data-original="#000000"
-                              ></path>
-                           </svg>
+                           <span className="absolute bottom-3  right-3" onClick={() => setShowPass(!showPass)}>
+                              {showPass ? <FaEyeSlash size={20} /> : <IoEyeSharp size={20} />}
+                           </span>
                         </div>
                      </div>
 
