@@ -1,6 +1,5 @@
-
 import { createBrowserRouter } from "react-router-dom";
-import Home from '../Pages/Home/Home/Home'
+import Home from "../Pages/Home/Home/Home";
 import Root from "../Layout/Root/Root";
 import Login from "../Auth/Login/Login";
 import ErrorPage from "../Pages/Error/ErrorPage";
@@ -9,7 +8,7 @@ import AddArt from "../Pages/AddArt/AddArt";
 import AllArtcraftItems from "../Pages/AllArt&craftItems/AllArtcraftItems";
 import MyArtCraftList from "../Pages/MyArt&CraftList/MyArtCraftList";
 import PrivateRoute from "./PrivateRoute";
-
+import Details from "../Pages/component/details/Details";
 
 const router = createBrowserRouter([
    {
@@ -50,6 +49,16 @@ const router = createBrowserRouter([
                   <MyArtCraftList />
                </PrivateRoute>
             ),
+            loader: () => fetch("http://localhost:5000/myCraft"),
+         },
+         {
+            path: "/details/:id",
+            element: (
+               <PrivateRoute>
+                  <Details />
+               </PrivateRoute>
+            ),
+            loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`),
          },
       ],
    },

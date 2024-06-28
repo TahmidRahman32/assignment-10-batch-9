@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 
 
 const ArtCollection = ({art}) => {
-   console.log(art);
-   const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price,_id } = art;
+   // console.log(art);
+   const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price, _id } = art;
+
+
    return (
       <div className="max-w-lg p-4 shadow-xl rounded-xl  transition border-2   hover:border-yellow-500  animate__animated animate__bounce animate__slower animate__fadeInDown">
          <div className="space-y-4">
@@ -43,7 +45,7 @@ const ArtCollection = ({art}) => {
                </p>
             </div>
             <div>
-               <Link to={`details${_id}`}>
+               <Link to={`/details/${_id}`}>
                   <div href="#_" className="relative inline-flex items-center justify-center p-4 px-3 py-1 overflow-hidden font-medium text-black transition duration-300 ease-out border-2 border-yellow-500 rounded-full shadow-md group">
                      <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-yellow-500 group-hover:translate-x-0 ease">
                         <FaRegArrowAltCircleRight size={20} />

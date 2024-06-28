@@ -23,7 +23,6 @@ const Banner = () => {
             modules={[Pagination, A11y]}
             spaceBetween={30}
             slidesPerView={1}
-            Autoplay
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
          >
