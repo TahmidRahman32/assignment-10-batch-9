@@ -4,10 +4,10 @@ import Swal from "sweetalert2";
 
 const MyArtCraftList = () => {
    const myAddCraft = useLoaderData();
-   console.log(myAddCraft);
+   // console.log(myAddCraft);
 
-   const myAddCardDelete =(id)=>{
-      console.log('psdf', id);
+   const myAddCardDelete = (id) => {
+      console.log("psdf", id);
 
       Swal.fire({
          title: "Are you sure?",
@@ -19,25 +19,23 @@ const MyArtCraftList = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
-
-            fetch(`http://localhost:5000/myCraft/${id}`,{
+            fetch(`http://localhost:5000/myCraft/${id}`, {
                method: "DELETE",
             })
-            .then(res => res.json())
-            .then(data =>{
-               console.log(data);
-               if (data.acknowledged) {
-                  Swal.fire({
-                     title: "Deleted!",
-                     text: "Your file has been deleted.",
-                     icon: "success",
-                  });
-               }
-            })
-           
+               .then((res) => res.json())
+               .then((data) => {
+                  console.log(data);
+                  if (data.deletedCount > 0) {
+                     Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success",
+                     });
+                  }
+               });
          }
       });
-   }
+   };
    return (
       <div>
          <section className="py-6 bg-gray-800 text-gray-100 rounded-2xl">

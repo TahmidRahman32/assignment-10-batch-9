@@ -9,6 +9,7 @@ import AllArtcraftItems from "../Pages/AllArt&craftItems/AllArtcraftItems";
 import MyArtCraftList from "../Pages/MyArt&CraftList/MyArtCraftList";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../Pages/component/details/Details";
+import Update from "../Pages/Update/Update";
 
 const router = createBrowserRouter([
    {
@@ -34,13 +35,14 @@ const router = createBrowserRouter([
             element: <AddArt />,
          },
          {
-            path: "/AllArt&craftItems",
+            path: "/AllArtCraftItems",
             element: (
                <PrivateRoute>
                   {" "}
                   <AllArtcraftItems></AllArtcraftItems>{" "}
                </PrivateRoute>
             ),
+            loader: () => fetch("http://localhost:5000/allArt"),
          },
          {
             path: "/MyArtCraftList",
@@ -59,6 +61,15 @@ const router = createBrowserRouter([
                </PrivateRoute>
             ),
             loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`),
+         },
+         {
+            path: "/update/:id",
+            element: (
+               <PrivateRoute>
+                  <Update/>
+               </PrivateRoute>
+            ),
+            // loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`),
          },
       ],
    },

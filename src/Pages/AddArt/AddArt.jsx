@@ -44,6 +44,7 @@ const AddArt = () => {
    return (
       <div>
          <section className="p-6 bg-gray-800 text-gray-50">
+         <h2 className="text-4xl font-bold text-center my-6">Add Art Page</h2>
             <form onSubmit={AddCraftItem} noValidate="" action="" className="container flex flex-col mx-auto md:space-y-12 bg-gray-900">
                <fieldset className="grid grid-cols-3 gap-6 md:p-6 rounded-md shadow-sm ">
                   <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">

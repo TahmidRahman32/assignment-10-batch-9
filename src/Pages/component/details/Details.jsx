@@ -10,10 +10,11 @@ import Swal from "sweetalert2";
 const Details = () => {
    const { user } = useContext(AuthContext);
    const detail = useLoaderData();
+   console.log(detail);
 
    const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price } = detail;
 
-   const handleAddToCraft = ()=>{
+   const handleAddToCraft = () => {
       fetch("http://localhost:5000/myCraft", {
          method: "POST",
          headers: {
@@ -31,7 +32,7 @@ const Details = () => {
                confirmButtonText: "Cool",
             });
          });
-   }
+   };
 
    return (
       <div>
@@ -42,12 +43,7 @@ const Details = () => {
                   {" "}
                   <span className="font-extrabold text-2xl"> Name:</span> {item_name}
                </h4>
-               {/* <div className="lg:flex justify-center gap-8">
-                  <p className="font-bold">Facilities:</p>
-                  <p className="text-lg font-semibold tracking-wider uppercase">#{facilities[0]}</p>
-                  <p className="text-lg font-semibold tracking-wider uppercase">#{facilities[1]}</p>
-                  <p className="text-lg font-semibold tracking-wider uppercase">#{facilities[2]}</p>
-               </div> */}
+
                <h1 className="text-4xl font-bold leading-tight md:text-5xl">{subcategory_Name}</h1>
                <p className="text-lg text-gray-600">
                   {" "}
