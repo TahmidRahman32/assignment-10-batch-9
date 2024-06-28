@@ -69,7 +69,7 @@ const router = createBrowserRouter([
                   <Update/>
                </PrivateRoute>
             ),
-            // loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`),
+            loader: ({ params }) => fetch(`http://localhost:5000/allArt/${params.id}`),
          },
       ],
    },

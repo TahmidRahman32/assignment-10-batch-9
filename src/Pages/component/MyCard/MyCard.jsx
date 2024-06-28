@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 
 const MyCard = ({ card, myAddCardDelete }) => {
    // console.log(card);
-   const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price, _id } = card;
+   const { url, item_name, subcategory_Name,  rating, stockStatus, price, _id } = card;
    return (
       <div className="flex flex-col justify-center w-full  mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-[450px] bg-gray-100 text-gray-800">
          <img alt="" className="self-center flex-shrink-0 w-32 h-32 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src={url} />
