@@ -1,12 +1,14 @@
-// import Swiper core and required modules
-import { A11y, Pagination } from "swiper/modules";
+import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import "animate.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/a11y";
 
+import "swiper/css/bundle";
+import "swiper/css/a11y";
+import "swiper/css/autoplay";
+import "swiper/css/effect-creative";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
@@ -20,9 +22,10 @@ const Banner = () => {
       <div className="px-2 md:px-0 mt-10 md:mt-0 md:h-[550px] md:mb-16 mb-8">
          <Swiper
             // install Swiper modules
-            modules={[Pagination, A11y]}
-            spaceBetween={30}
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
             slidesPerView={1}
+            navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
          >

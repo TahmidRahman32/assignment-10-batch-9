@@ -25,7 +25,7 @@ const SaleSectin = () => {
                </div>
             </div>
             <div className="md:flex gap-10">
-               <div>
+               <div className="my-3 md:my-0">
                   <div>
                      <img className="md:w-[380px] w-full h-[320px]" src={img3} alt="" />
                   </div>
@@ -38,7 +38,7 @@ const SaleSectin = () => {
                      </a>
                   </div>
                </div>
-               <div>
+               <div className="my-3 md:my-0">
                   <div className="px-2 py-24 bg-stone-800 text-center gap-4">
                      <h5 className="text-white text-xl font-bold text-center">trending Design 2024</h5>
                      <h2 className="text-white text-4xl font-bold"> Wood koumianakis </h2>

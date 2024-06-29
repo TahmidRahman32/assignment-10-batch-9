@@ -1,14 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import AllArt from "../component/AllArt/AllArt";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const AllArtcraftItems = () => {
    const allArt = useLoaderData();
-   console.log(allArt);
+   const [allArtData, setAllArtData] = useState(allArt);
+
+   console.log(allArtData);
 
    const allArtDeleteBtn = (id) => {
-      console.log("up", id);
-
       Swal.fire({
          title: "Are you sure?",
          text: "You won't be able to revert this!",
@@ -24,13 +25,15 @@ const AllArtcraftItems = () => {
             })
                .then((res) => res.json())
                .then((data) => {
-                  console.log(data);
                   if (data.deletedCount > 0) {
                      Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success",
                      });
+
+                     const remaining = allArtData.filter((d) => d._id !== id)
+                     setAllArtData(remaining);
                   }
                });
          }

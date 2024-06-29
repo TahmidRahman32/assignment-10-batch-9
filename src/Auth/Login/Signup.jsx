@@ -137,7 +137,7 @@ const Signup = () => {
                            <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-white rounded-full"></span>
                            <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-yellow-500">Register</span>
                         </button>
-                        <p className="text-sm text-white mt-8">
+                        <p className="text-sm  mt-8">
                            Already have an account?{" "}
                            <Link to={"/login"} href="javascript:void(0);" className="text-yellow-400 font-semibold hover:underline ml-1">
                               Login here

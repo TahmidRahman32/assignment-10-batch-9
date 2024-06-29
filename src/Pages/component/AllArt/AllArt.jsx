@@ -6,11 +6,11 @@ const AllArt = ({ art, allArtDeleteBtn }) => {
    const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price, _id } = art;
    return (
       <div>
-         <li className="flex flex-col py-6 my-10 sm:flex-row sm:justify-between">
+         <li className="md:flex flex-col py-6 my-10 sm:flex-row sm:justify-between">
             <div className="flex w-full space-x-5 sm:space-x-4">
                <img className="flex-shrink-0 object-cover w-28 h-28 dark:border- rounded outline-none sm:w-44 sm:h-44 bg-gray-500" src={url} alt="Set of travel chargers" />
                <div className="flex flex-col justify-between w-full pb-4">
-                  <div className="flex justify-between w-full pb-2 space-x-2">
+                  <div className="md:flex justify-between w-full pb-2 space-x-2">
                      <div className="space-y-1">
                         <h3 className="text-lg font-semibold leading-snug sm:pr-8">{item_name}</h3>
                         <p className="text-sm text-gray-400">{subcategory_Name}</p>
@@ -28,13 +28,13 @@ const AllArt = ({ art, allArtDeleteBtn }) => {
                      </div>
                      <div className="text-right">
                         <Link to={`/update/${_id}`}>
-                           <button className="flex gap-1 items-center bg-yellow-500 rounded-xl py-2 px-4 hover:bg-yellow-400">
+                           <button className="flex gap-1 items-center text-gray-800 bg-yellow-500 rounded-xl py-2 px-4 hover:bg-yellow-400">
                               <GrUpdate /> <span className="text-xl font-bold">Update</span>
                            </button>
                         </Link>
                      </div>
                   </div>
-                  <div className="flex text-sm divide-x">
+                  <div className="md:flex text-sm divide-x">
                      <button onClick={() => allArtDeleteBtn(_id)} type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 fill-current">
                            <path d="M96,472a23.82,23.82,0,0,0,23.579,24H392.421A23.82,23.82,0,0,0,416,472V152H96Zm32-288H384V464H128Z"></path>
@@ -51,7 +51,7 @@ const AllArt = ({ art, allArtDeleteBtn }) => {
                         </svg>
                         <span>Add to favorites</span>
                      </button>
-                     <div className="flex gap-5 justify-center items-center ">
+                     <div className="md:flex gap-5 justify-center items-center ">
                         <p>
                            Price: <span className="font-bold">{price}</span>
                         </p>

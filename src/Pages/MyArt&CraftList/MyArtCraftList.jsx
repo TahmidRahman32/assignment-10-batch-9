@@ -1,14 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import MyCard from "../component/MyCard/MyCard";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const MyArtCraftList = () => {
    const myAddCraft = useLoaderData();
    // console.log(myAddCraft);
+   const [deleted, setDeleted] = useState(myAddCraft);
 
    const myAddCardDelete = (id) => {
-      console.log("psdf", id);
-
       Swal.fire({
          title: "Are you sure?",
          text: "You won't be able to revert this!",
@@ -24,13 +24,14 @@ const MyArtCraftList = () => {
             })
                .then((res) => res.json())
                .then((data) => {
-                  console.log(data);
                   if (data.deletedCount > 0) {
                      Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success",
                      });
+                     const orders = deleted.filter((order) => myAddCraft.includes(order.id));
+                     setDeleted(orders);
                   }
                });
          }
