@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 const Login = () => {
    const [showPass, setShowPass] = useState(false);
-   const { Login, googleLogin } = useContext(AuthContext);
+   const { Login, googleLogin, gitHubLogin } = useContext(AuthContext);
    const [logError, setLogError] = useState("");
    const [loginMassage, setLoginMassage] = useState("");
 
@@ -32,8 +32,17 @@ const Login = () => {
             setLogError(error.code);
          });
    };
- const handleGithubBtn = () => {
+ const handleGoogleBtn = () => {
    googleLogin()
+      .then((result) => {
+         console.log(result.user);
+      })
+      .catch((error) => {
+         console.log(error);
+      });
+ };
+ const handleGithubBtn = () => {
+   gitHubLogin()
       .then((result) => {
          console.log(result.user);
       })
@@ -140,11 +149,11 @@ const Login = () => {
                         </p>
                      </div>
                   </form>
-                  <div className="flex gap-4 justify-center">
-                     <button onClick={handleGithubBtn} className="rounded-full my-6 bg-white p-1">
+                  <div className="flex gap-4 justify-center ">
+                     <button onClick={handleGoogleBtn} className="rounded-full my-6 bg-white p-2">
                         <FcGoogle size={30} />
                      </button>
-                     <button className="rounded-full my-6 bg-white p-1">
+                     <button onClick={handleGithubBtn} className="rounded-full my-6 bg-white p-2">
                         <FaGithub size={30} />
                      </button>
                   </div>

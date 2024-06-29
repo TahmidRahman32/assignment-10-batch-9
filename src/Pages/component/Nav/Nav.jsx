@@ -99,11 +99,13 @@ const Nav = () => {
                </ul>
             </div>
 
-            < h1
-               className= "font-bold text-3xl"
+            <h1
+               className="font-bold text-3xl"
                // src="https://jewellerycityweb.thimaqua.info/wp-content/uploads/elementor/thumbs/xlogo--q5ow6jiawhg3irw2fr05yiyms3hi8fivtf3gcisfls.png.pagespeed.ic.2ZsKPWIimf.png"
                // alt=""
-            >Art Gallery</h1> 
+            >
+               Art Gallery
+            </h1>
          </div>
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLinks}</ul>

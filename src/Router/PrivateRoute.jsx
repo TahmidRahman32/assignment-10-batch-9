@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
 
    if (loading) {
       return (
-         <div className="flex justify-center items-center min-h-[calc(100vh-360px)]">
+         <div className="flex justify-center items-center h-screen">
             <RingLoader size={100} color="#836c0a" />
          </div>
       );

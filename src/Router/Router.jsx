@@ -20,7 +20,7 @@ const router = createBrowserRouter([
          {
             path: "/",
             element: <Home></Home>,
-            loader: () => fetch("http://localhost:5000/craft"),
+            loader: () => fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/craft"),
          },
          {
             path: "/login",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
                   <AllArtcraftItems></AllArtcraftItems>{" "}
                </PrivateRoute>
             ),
-            loader: () => fetch("http://localhost:5000/allArt"),
+            loader: () => fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/allArt"),
          },
          {
             path: "/MyArtCraftList",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
                   <MyArtCraftList />
                </PrivateRoute>
             ),
-            loader: () => fetch("http://localhost:5000/myCraft"),
+            loader: () => fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/myCraft"),
          },
          {
             path: "/details/:id",
@@ -60,16 +60,16 @@ const router = createBrowserRouter([
                   <Details />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`),
+            loader: ({ params }) => fetch(` https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/craft/${params.id}`),
          },
          {
             path: "/update/:id",
             element: (
                <PrivateRoute>
-                  <Update/>
+                  <Update />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(`http://localhost:5000/allArt/${params.id}`),
+            loader: ({ params }) => fetch(` https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/allArt/${params.id}`),
          },
       ],
    },

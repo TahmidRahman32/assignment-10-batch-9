@@ -3,49 +3,47 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Router/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 
-
 const Update = () => {
    const updateData = useLoaderData();
    console.log(updateData);
-    const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price,_id } = updateData;
+   const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price, _id } = updateData;
    const { user } = useContext(AuthContext);
-     const updateArt = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const url = form.url.value;
-        const item_name = form.item_name.value;
-        const subcategory_Name = form.subcategory_Name.value;
-        const price = form.price.value;
-        const description = form.description.value;
-        const rating = form.rating.value;
-        const processing_time = form.processing_time.value;
-        const customization = form.customization.value;
-        const stockStatus = form.stockStatus.value;
-        const UserName = form.UserName.value;
-        const UserEmail = form.UserEmail.value;
-        const art = { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, UserEmail, UserName, price };
-        console.log(art);
+   const updateArt = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const url = form.url.value;
+      const item_name = form.item_name.value;
+      const subcategory_Name = form.subcategory_Name.value;
+      const price = form.price.value;
+      const description = form.description.value;
+      const rating = form.rating.value;
+      const processing_time = form.processing_time.value;
+      const customization = form.customization.value;
+      const stockStatus = form.stockStatus.value;
+      const UserName = form.UserName.value;
+      const UserEmail = form.UserEmail.value;
+      const art = { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, UserEmail, UserName, price };
+      console.log(art);
 
-        fetch(`http://localhost:5000/allArt/${_id}`, {
-           method: "PUT",
-           headers: {
-              "content-type": "application/json",
-           },
-           body: JSON.stringify(art),
-        })
-           .then((res) => res.json())
-           .then((data) => {
-             
-              if (data.modifiedCount > 0) {
-                 Swal.fire({
-                    title: "Success!",
-                    text: "Art added successfully",
-                    icon: "success",
-                    confirmButtonText: "Cool",
-                 });
-              }
-           });
-     };
+      fetch(` https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/allArt/${_id}`, {
+         method: "PUT",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(art),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            if (data.modifiedCount > 0) {
+               Swal.fire({
+                  title: "Success!",
+                  text: "Art added successfully",
+                  icon: "success",
+                  confirmButtonText: "Cool",
+               });
+            }
+         });
+   };
    return (
       <div>
          <section className="p-6 bg-gray-800 text-gray-50">

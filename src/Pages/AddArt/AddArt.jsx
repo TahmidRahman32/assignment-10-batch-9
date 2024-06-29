@@ -1,10 +1,10 @@
-import { useContext,  } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Router/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddArt = () => {
-   const {user} = useContext(AuthContext)
-   const AddCraftItem =(e)=>{
+   const { user } = useContext(AuthContext);
+   const AddCraftItem = (e) => {
       e.preventDefault();
       const form = e.target;
       const url = form.url.value;
@@ -18,10 +18,10 @@ const AddArt = () => {
       const stockStatus = form.stockStatus.value;
       const UserName = form.UserName.value;
       const UserEmail = form.UserEmail.value;
-      const art = {url, item_name, subcategory_Name, description,rating, processing_time, customization, stockStatus,UserEmail, UserName,price}
+      const art = { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, UserEmail, UserName, price };
       console.log(art);
 
-      fetch("http://localhost:5000/craft", {
+      fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/craft", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -31,7 +31,7 @@ const AddArt = () => {
          .then((res) => res.json())
          .then((data) => {
             console.log(data);
-            if(data.insertedId){
+            if (data.insertedId) {
                Swal.fire({
                   title: "Success!",
                   text: "Art added successfully",
@@ -40,11 +40,11 @@ const AddArt = () => {
                });
             }
          });
-   }
+   };
    return (
       <div>
          <section className="p-6 bg-gray-800 text-gray-50">
-         <h2 className="text-4xl font-bold text-center my-6">Add Art Page</h2>
+            <h2 className="text-4xl font-bold text-center my-6">Add Art Page</h2>
             <form onSubmit={AddCraftItem} noValidate="" action="" className="container flex flex-col mx-auto md:space-y-12 bg-gray-900">
                <fieldset className="grid grid-cols-3 gap-6 md:p-6 rounded-md shadow-sm ">
                   <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">

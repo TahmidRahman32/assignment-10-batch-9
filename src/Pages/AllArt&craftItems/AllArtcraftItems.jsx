@@ -7,8 +7,6 @@ const AllArtcraftItems = () => {
    const allArt = useLoaderData();
    const [allArtData, setAllArtData] = useState(allArt);
 
-   console.log(allArtData);
-
    const allArtDeleteBtn = (id) => {
       Swal.fire({
          title: "Are you sure?",
@@ -20,7 +18,7 @@ const AllArtcraftItems = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
-            fetch(`http://localhost:5000/allArt/${id}`, {
+            fetch(` https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/allArt/${id}`, {
                method: "DELETE",
             })
                .then((res) => res.json())
@@ -32,7 +30,7 @@ const AllArtcraftItems = () => {
                         icon: "success",
                      });
 
-                     const remaining = allArtData.filter((d) => d._id !== id)
+                     const remaining = allArtData.filter((d) => d._id !== id);
                      setAllArtData(remaining);
                   }
                });
