@@ -21,7 +21,7 @@ const AddArt = () => {
       const art = { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, UserEmail, UserName, price };
       console.log(art);
 
-      fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/craft", {
+      fetch(" https://assignment-10-server-azure-kappa.vercel.app/craft", {
          method: "POST",
          headers: {
             "content-type": "application/json",

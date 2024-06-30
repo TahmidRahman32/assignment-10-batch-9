@@ -15,7 +15,7 @@ const Details = () => {
    const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price } = detail;
 
    const handleAddToCraft = () => {
-      fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/myCraft", {
+      fetch("https://assignment-10-server-azure-kappa.vercel.app/myCraft", {
          method: "POST",
          headers: {
             "content-type": "application/json",

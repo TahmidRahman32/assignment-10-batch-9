@@ -20,7 +20,7 @@ const router = createBrowserRouter([
          {
             path: "/",
             element: <Home></Home>,
-            loader: () => fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/craft"),
+            loader: () => fetch(" https://assignment-10-server-azure-kappa.vercel.app/craft"),
          },
          {
             path: "/login",
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
                   <AllArtcraftItems></AllArtcraftItems>{" "}
                </PrivateRoute>
             ),
-            loader: () => fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/allArt"),
+            loader: () => fetch(" https://assignment-10-server-azure-kappa.vercel.app/allArt"),
          },
          {
             path: "/MyArtCraftList",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
                   <MyArtCraftList />
                </PrivateRoute>
             ),
-            loader: () => fetch(" https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/myCraft"),
+            loader: () => fetch(" https://assignment-10-server-azure-kappa.vercel.app/myCraft"),
          },
          {
             path: "/details/:id",
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
                   <Details />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(` https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/craft/${params.id}`),
+            loader: ({ params }) => fetch(` https://assignment-10-server-azure-kappa.vercel.app/craft/${params.id}`),
          },
          {
             path: "/update/:id",
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
                   <Update />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(` https://assignment-10-server-fk285vysi-tahmids-projects-d7114fc9.vercel.app/allArt/${params.id}`),
+            loader: ({ params }) => fetch(` https://assignment-10-server-azure-kappa.vercel.app/allArt/${params.id}`),
          },
       ],
    },
