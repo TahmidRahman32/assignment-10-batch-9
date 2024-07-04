@@ -15,7 +15,7 @@ const Details = () => {
    const { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, price } = detail;
 
    const handleAddToCraft = () => {
-      fetch("https://assignment-10-server-azure-kappa.vercel.app/myCraft", {
+      fetch("http://localhost:5000/myCraft", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -72,7 +72,7 @@ const Details = () => {
                      <hr />
                      <p className="font-bold my-2 flex items-center gap-1">
                         {" "}
-                        <IoCall size={20} color="#1ED50C " /> 09999999999
+                        <IoCall size={20} color="#1ED50C" /> 09999999999
                      </p>
                      <p className="font-bold my-2 flex items-center gap-1">
                         {" "}

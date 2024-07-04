@@ -21,7 +21,7 @@ const AddArt = () => {
       const art = { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, UserEmail, UserName, price };
       console.log(art);
 
-      fetch(" https://assignment-10-server-azure-kappa.vercel.app/craft", {
+      fetch(" http://localhost:5000/craft", {
          method: "POST",
          headers: {
             "content-type": "application/json",

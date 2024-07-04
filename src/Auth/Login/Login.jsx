@@ -153,7 +153,7 @@ const Login = () => {
                      <button onClick={handleGoogleBtn} className="rounded-full my-6 bg-white p-2">
                         <FcGoogle size={30} />
                      </button>
-                     <button onClick={handleGithubBtn} className="rounded-full my-6 bg-white p-2">
+                     <button onClick={handleGithubBtn} className="rounded-full my-6 bg-white p-2 text-black">
                         <FaGithub size={30} />
                      </button>
                   </div>

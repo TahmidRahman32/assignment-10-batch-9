@@ -19,7 +19,7 @@ const MyArtCraftList = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
-            fetch(` https://assignment-10-server-azure-kappa.vercel.app/myCraft/${id}`, {
+            fetch(`http://localhost:5000/myCraft/${id}`, {
                method: "DELETE",
             })
                .then((res) => res.json())
@@ -44,7 +44,7 @@ const MyArtCraftList = () => {
                <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">AVAYAGIFTS Fully</p>
                <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl"> Jute Necklace set for Women and Girls</h1>
                <div className=" grid md:grid-cols-3 r mt-8">
-                  {myAddCraft.map((card) => (
+                  {myAddCraft?.map((card) => (
                      <MyCard key={card._id} card={card} myAddCardDelete={myAddCardDelete}></MyCard>
                   ))}
                </div>

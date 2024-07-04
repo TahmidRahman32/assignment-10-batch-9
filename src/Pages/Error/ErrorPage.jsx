@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
+   const error = useRouteError()
+   console.log(error);
    return (
       <section className="flex items-center h-screen sm:p-16 bg-gray-900 text-gray-100">
          <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
@@ -17,8 +19,10 @@ const ErrorPage = () => {
                ></polygon>
             </svg>
             <p className="text-3xl">Looks like our services are currently offline</p>
-            <Link to={'/'} className="px-8 py-3 font-semibold rounded bg-violet-400 text-gray-900">
-               Back to homepage
+            <Link to={"/"} >
+               <button className="relative h-[50px] w-56 overflow-hidden border border-yellow-500 bg-white text-yellow-500 text-xl font-bold font-fStyle shadow-2xl transition-all before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-500 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-500 hover:text-white hover:shadow-yellow-500 hover:before:w-2/4 hover:before:bg-yellow-500 hover:after:w-2/4 hover:after:bg-yellow-500">
+                  <span className="relative z-10"> Back to homepage</span>
+               </button>
             </Link>
          </div>
       </section>

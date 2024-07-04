@@ -20,7 +20,7 @@ const router = createBrowserRouter([
          {
             path: "/",
             element: <Home></Home>,
-            loader: () => fetch(" https://assignment-10-server-azure-kappa.vercel.app/craft"),
+            loader: () => fetch("http://localhost:5000/craft"),
          },
          {
             path: "/login",
@@ -32,7 +32,11 @@ const router = createBrowserRouter([
          },
          {
             path: "/addArt",
-            element: <AddArt />,
+            element: (
+               <PrivateRoute>
+                  <AddArt />
+               </PrivateRoute>
+            ),
          },
          {
             path: "/AllArtCraftItems",
@@ -42,7 +46,7 @@ const router = createBrowserRouter([
                   <AllArtcraftItems></AllArtcraftItems>{" "}
                </PrivateRoute>
             ),
-            loader: () => fetch(" https://assignment-10-server-azure-kappa.vercel.app/allArt"),
+            loader: () => fetch("http://localhost:5000/allArt"),
          },
          {
             path: "/MyArtCraftList",
@@ -51,7 +55,7 @@ const router = createBrowserRouter([
                   <MyArtCraftList />
                </PrivateRoute>
             ),
-            loader: () => fetch(" https://assignment-10-server-azure-kappa.vercel.app/myCraft"),
+            loader: () => fetch("http://localhost:5000/myCraft"),
          },
          {
             path: "/details/:id",
@@ -60,7 +64,7 @@ const router = createBrowserRouter([
                   <Details />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(` https://assignment-10-server-azure-kappa.vercel.app/craft/${params.id}`),
+            loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`),
          },
          {
             path: "/update/:id",
@@ -69,7 +73,7 @@ const router = createBrowserRouter([
                   <Update />
                </PrivateRoute>
             ),
-            loader: ({ params }) => fetch(` https://assignment-10-server-azure-kappa.vercel.app/allArt/${params.id}`),
+            loader: ({ params }) => fetch(`http://localhost:5000/allArt/${params.id}`),
          },
       ],
    },

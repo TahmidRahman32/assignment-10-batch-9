@@ -43,10 +43,11 @@ const Nav = () => {
             <NavLink to={"/AllArtCraftItems"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
                AllArt&craftItems
             </NavLink>
-
             <NavLink to={"/addArt"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>
                AddCraftItem
             </NavLink>
+
+        
 
             {user && (
                <NavLink to={"/MyArtCraftList"} className={({ isActive }) => (isActive ? "text-primary underline font-bold md:text-xl font-fStyle" : "font-bold md:text-xl font-fStyle")}>

@@ -18,7 +18,7 @@ const AllArtcraftItems = () => {
          confirmButtonText: "Yes, delete it!",
       }).then((result) => {
          if (result.isConfirmed) {
-            fetch(` https://assignment-10-server-azure-kappa.vercel.app/allArt/${id}`, {
+            fetch(`http://localhost:5000/allArt/${id}`, {
                method: "DELETE",
             })
                .then((res) => res.json())
@@ -43,7 +43,7 @@ const AllArtcraftItems = () => {
             <h2 className="text-3xl font-bold">All Art</h2>
             <ul className="flex  flex-col divide-y divide-gray-700">
                <div>
-                  {allArt.map((art) => (
+                  {allArt?.map((art) => (
                      <AllArt key={art._id} art={art} allArtDeleteBtn={allArtDeleteBtn}></AllArt>
                   ))}
                </div>

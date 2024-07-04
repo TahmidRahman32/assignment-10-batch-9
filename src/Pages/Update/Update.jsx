@@ -25,7 +25,7 @@ const Update = () => {
       const art = { url, item_name, subcategory_Name, description, rating, processing_time, customization, stockStatus, UserEmail, UserName, price };
       console.log(art);
 
-      fetch(` https://assignment-10-server-azure-kappa.vercel.app/allArt/${_id}`, {
+      fetch(`http://localhost:5000/allArt/${_id}`, {
          method: "PUT",
          headers: {
             "content-type": "application/json",
